@@ -21,5 +21,17 @@ implement fix from [https://github.com/tj/commander.js\#avoiding-option-name-cla
 
 high sierra support for package "noble": [https://github.com/noble/noble/pull/689/files/10be5e50e0c58c99b75b21d5505fb80fa7a7ad83](https://github.com/noble/noble/pull/689/files/10be5e50e0c58c99b75b21d5505fb80fa7a7ad83)
 
+## Using the new Bean Loader CLI from PlatformIO
+
+[https://tinkerman.cat/post/using-new-bean-loader-cli-platformio](https://tinkerman.cat/post/using-new-bean-loader-cli-platformio)
+
+## Non-official API for Linux
+
+{% embed url="https://github.com/jacobrosenthal/ble-bean" %}
+
+## Punchthrough Atlassian confluence
+
+[https://punchthrough.atlassian.net/wiki/spaces/PREL/overview](https://punchthrough.atlassian.net/wiki/spaces/PREL/overview)
+
 
 
