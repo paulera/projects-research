@@ -6,6 +6,12 @@
   * Add `noatime` to the mount options of `/` mount point in the file `/etc/fstab`
   * Disable swap: `sudo swapoff --all`
   * Highly used directories such as `/var/tmp/` and possibly `/var/log` can be relocated to RAM in `/etc/fstab` like this: `tmpfs /var/tmp tmpfs nodev,nosuid,size=50M 0 0`
+  * Make firefox use RAM for cahe instead of disk:
+    * browse `about:config`
+    * browser.cache.disk.enable = false
+    * browser.cache.memory.enable = true
+    * browser.cache.memory.capacity = 204800
+      * memory capacity is KB, so 204800 = 200MB
 * Boot a live USB entirely on the RAM:
   * You will need this to be able to use **mkusb** \(below\) to rebuild the USB as a persistent live one. Other option is to have 2 USB sticks, one for boot as Live USB, and another one to make as the persistent drive.
   * Boot to RAM: During the live USB boot, highlight the option `Try without installing`press `E`, in the line that starts with `linux` add `toram` after `quiet splash`
