@@ -24,6 +24,15 @@ You will need this to be able to use **mkusb** \(below\) to rebuild the USB as a
   * This will make the OS to not compute the "Last Access" value of files when they are read
 * Disable swap: `sudo swapoff --all`
 * Highly used directories such as `/var/tmp/` and possibly `/var/log` can be relocated to RAM in `/etc/fstab` like this: `tmpfs /var/tmp tmpfs nodev,nosuid,size=50M 0 0`
+
+```text
+overlay / overlay rw,noatime 0 0
+tmpfs /tmp tmpfs nosuid,nodev,noatime,size=250M 0 0
+tmpfs /var/tmp tmpfs nosuid,nodev,noatime,size=100M 0 0
+tmpfs /var/log tmpfs nosuid,nodev,noatime,size=250M 0 0
+tmpfs /var/run tmpfs nosuid,nodev,noatime,size=50M 0 0
+```
+
 * Make firefox use RAM for cahe instead of disk:
   * browse `about:config`
   * browser.cache.disk.enable = false
