@@ -100,3 +100,9 @@ systemctl --user status psd
 
 ```
 
+### Disable overlayroot to be able to make permanent chages to the system
+
+{% embed url="https://spin.atomicobject.com/2015/03/10/protecting-ubuntu-root-filesystem/" %}
+
+override any overlayroot configuration by passing `overlayroot=disabled` to the kernel at boot.
+
