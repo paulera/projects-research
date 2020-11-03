@@ -148,3 +148,37 @@ mount -t ntfs-3g -L Inter /media/Inter -o uid=1000,gid=999,umask=002
 exit
 ```
 
+### Sane xubuntu setup guide for macbook pro
+
+\`[https://gist.github.com/willbush/38aee00bca2f6a6b65333a95b2948c4a](https://gist.github.com/willbush/38aee00bca2f6a6b65333a95b2948c4a)\`
+
+```text
+sudo apt-get install xserver-xorg-input-mtrack
+sudo vim /usr/share/X11/xorg.conf.d/50-synaptics.conf
+
+# Others configurations
+# (http://yarenty.blogspot.com/2014/08/how-to-fix-macbook-pro-touchpad-on.html)
+
+# Find
+Section "InputClass"
+    MatchIsTouchpad "on"
+    Identifier      "Touchpads"
+    Driver          "mtrack"
+EndSection
+
+# Update to
+Section "InputClass"
+    MatchIsTouchpad "on"
+    Identifier      "Touchpads"
+    Driver          "mtrack"
+    Option          "Sensitivity" "1.25"
+    Option          "TapButton1"  "0"
+EndSection
+```
+
+### Stop trackpad to respond when keboard events are happening - dispad
+
+{% embed url="https://github.com/BlueDragonX/dispad" %}
+
+
+
