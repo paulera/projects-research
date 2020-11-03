@@ -60,5 +60,43 @@ tmpfs /var/run tmpfs nosuid,nodev,noatime,size=50M 0 0
 
 {% embed url="https://help.ubuntu.com/community/mkusb/install-to-debian" %}
 
+### profile-sync-daemon: Store browser profile in RAM and flush from time to time to the disk
 
+{% embed url="https://ostechnix.com/how-to-sync-browser-profile-into-tmpfs-ram-in-linux/" %}
+
+```text
+sudo apt-get install profile-sync-daemon
+
+# first run:
+psd
+# First time running psd so please edit
+# /home/sk/.config
+/psd/psd.conf to your liking
+# and run again.
+
+vim /home/paulo/.config/psd/psd.conf
+
+# EDIT THIS LINE
+# [...]
+# BROWSERS="chromium firefox"
+# [...]
+
+# Enable and start PSD service
+systemctl --user enable psd
+systemctl --user start psd
+
+# Check whether it is running
+systemctl --user status psd
+
+# Check what PSD is doing
+ psd p
+ 
+ # change syn interval
+ crontab -e
+ # update the entry accordingly
+ # */15 * * * *     /usr/bin/profile-sync-daemon sync &> /dev/null
+ 
+ 
+
+```
 
