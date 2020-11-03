@@ -106,3 +106,45 @@ systemctl --user status psd
 
 override any overlayroot configuration by passing `overlayroot=disabled` to the kernel at boot.
 
+### Reduce cache pressure
+
+{% embed url="https://askubuntu.com/questions/643080/how-to-create-a-live-system-on-usb-drive-with-persistent-changes-on-disk-hdd" %}
+
+In your `/etc/sysctl.conf` add:
+
+```text
+# Fabby: change the "swappiness" to 10 to prevent swapping as much as possible
+# to not wear out the USB stick as the Ubuntu default is optimized for a server.
+# 10 to balance with vfs_cache_pressure
+vm.swappiness = 10
+
+# Fabby: Lower vfs_cache_pressure to 75% 
+# (once cached, probably not immediately needed any more)
+#
+# This percentage value controls the tendency of the kernel to reclaim
+# the memory which is used for caching of directory and inode objects.
+#
+# At the default value of vfs_cache_pressure=100 the kernel will attempt to
+# reclaim dentries and inodes at a "fair" rate with respect to pagecache and
+# swapcache reclaim.  Decreasing vfs_cache_pressure causes the kernel to prefer
+# to retain dentry and inode caches.
+vm.vfs_cache_pressure = 75
+
+# Fabby: Good to improve sequential reads (stop stuttering in movie play)
+# Can also be implemented per disk using udev rules
+vm.max-readahead=2048
+vm.min-readahead=1024
+```
+
+### Add mount commands to rc.local because /etc/fstab keeps being rewritten on persistent live USB
+
+{% embed url="https://askubuntu.com/questions/56719/what-file-resets-fstab-on-persistent-live-environments" %}
+
+ Add your mount commands in **`/etc/rc.local`**
+
+```text
+...
+mount -t ntfs-3g -L Inter /media/Inter -o uid=1000,gid=999,umask=002
+exit
+```
+
