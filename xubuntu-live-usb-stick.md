@@ -155,6 +155,8 @@ exit
 ```text
 sudo apt-get install xserver-xorg-input-mtrack
 sudo vim /usr/share/X11/xorg.conf.d/50-synaptics.conf
+# the file might also be /etc/X11/xorg.conf 
+
 
 # Others configurations
 # (http://yarenty.blogspot.com/2014/08/how-to-fix-macbook-pro-touchpad-on.html)
