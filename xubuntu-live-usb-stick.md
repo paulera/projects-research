@@ -182,5 +182,15 @@ EndSection
 
 {% embed url="https://github.com/BlueDragonX/dispad" %}
 
+### Trying to solve the issue of not being able to change fstab
+
+`blkid` - display all drives
+
+create a folder in `/media` and try mounting drives there, to find out where fstab is coming from
+
+idea: the `/media/cdrom` may have the contents that are being used by the OS to boot up. Try to boot with the `toram` flag, so you can umount that and mount without the `ro` flag.
+
+I cant find traces of fstab in `/cdrom`, but there is a large file  `/media/cdrom/casper/filesystem.squashfs`
+
 
 
