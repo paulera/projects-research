@@ -184,6 +184,8 @@ EndSection
 
 ### Trying to solve the issue of not being able to change fstab
 
+Some sources say that `/etc/fstab` in a persistent system is a dummy file and changes are actually made by `/usr/share/initramfs-tools/scripts/casper-bottom/12fstab`. This file has a command that writes the contents of `fstab` , I changed it but didn't apply anyways.
+
 `blkid` - display all drives
 
 create a folder in `/media` and try mounting drives there, to find out where fstab is coming from
@@ -191,6 +193,12 @@ create a folder in `/media` and try mounting drives there, to find out where fst
 idea: the `/media/cdrom` may have the contents that are being used by the OS to boot up. Try to boot with the `toram` flag, so you can umount that and mount without the `ro` flag.
 
 I cant find traces of fstab in `/cdrom`, but there is a large file  `/media/cdrom/casper/filesystem.squashfs`
+
+running `blkid` I found `/dev/loop0: TYPE="squashfs"`. Can I mount it and look for the fstab there? I mounted it and had a warning `mount: /media/opa: WARNING: device write-protected, mounted read-only.`
+
+In this system I found a file `/usr/share/initramfs-tools/scripts/casper-bottom/fstab12` which is still unchanged, so a great candidate.
+
+This link explains how to manipulate a squashfs file: [https://unix.stackexchange.com/questions/80305/mounting-a-squashfs-filesystem-in-read-write](https://unix.stackexchange.com/questions/80305/mounting-a-squashfs-filesystem-in-read-write)
 
 
 
