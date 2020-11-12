@@ -63,6 +63,19 @@ Some working sketches found in: [https://www.hackster.io/glowascii/lightblue-bea
 
 {% embed url="http://www.avr-asm-tutorial.net/avr\_en/apps/key\_matrix/keypad/resmatrix/resmatrix.html" %}
 
+## Searching for LightBlue Bean stuff
+
+* Search for `BeanHid.enable();`
+* Set pairing pin: [https://github.com/PunchThrough/bean-arduino-core/blob/master/examples/pairing/setPairingPin.ino](https://github.com/PunchThrough/bean-arduino-core/blob/master/examples/pairing/setPairingPin.ino)
+* Bean pins: [https://github.com/PunchThrough/bean-arduino-core/blob/master/hardware/bean/avr/variants/bean/pins\_arduino.h](https://github.com/PunchThrough/bean-arduino-core/blob/master/hardware/bean/avr/variants/bean/pins_arduino.h)
+* APIs: [https://github.com/PunchThrough/bean-arduino-core/tree/master/hardware/bean/avr/cores/bean](https://github.com/PunchThrough/bean-arduino-core/tree/master/hardware/bean/avr/cores/bean)
+
+## HC-05 Module
+
+* Program itself as bluetooth gamepad controler: [https://mitxela.com/projects/bluetooth\_hid\_gamepad](https://mitxela.com/projects/bluetooth_hid_gamepad)
+
+## ESP32 - Wifi and Bluetooth enabled, 512k
+
 
 
 
