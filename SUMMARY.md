@@ -13,4 +13,5 @@
 * [Slack integration for estimations](slack-integration-for-estimations.md)
 * [Xubuntu Live USB stick](xubuntu-live-usb-stick.md)
 * [Kids book](kids-book.md)
+* [Debug Fitbit App](debug-fitbit-app.md)
 
